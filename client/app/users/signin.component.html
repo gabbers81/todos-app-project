@@ -1,0 +1,31 @@
+<div class="col-md-8 col-xs-offset-2 well">
+    <form [formGroup]="signinForm">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+        </div>
+        <div *ngIf="signinForm.controls.email.touched && !signinForm.controls.email.valid">
+            <div class="alert alert-danger" *ngIf="signinForm.controls['email'].errors.required && signinForm.controls['email'].touched">
+                Email is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="signinForm.controls['email'].errors.validateIsEmail && signinForm.controls['email'].touched">
+                Please enter a valid email address!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+        </div>
+        <div *ngIf="signinForm.controls.password.touched && !signinForm.controls.password.valid">
+            <div class="alert alert-danger" *ngIf="signinForm.controls.password.errors.required && signinForm.controls.password.touched">
+                Password is required!
+            </div>
+            <div class="alert alert-danger" *ngIf="signinForm.controls.password.errors.minlength && signinForm.controls.password.touched">
+                Password must be at least {{signinForm.controls.password.errors.minlength.requiredLength}} characters long!
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!signinForm.valid">Create User
+        </button>
+        <span class="alert alert-warning" *ngIf="!signinForm.valid">Please complete form with all required fields.</span>
+    </form>
+</div>

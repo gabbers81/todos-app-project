@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2 well">
+<div class="col-md-8 col-xs-offset-2 well">
     <form [formGroup]="signupForm">
         <div class="form-group">
             <label for="firstName">First Name</label>
@@ -28,7 +28,7 @@
             Last name is required!
         </div>
         <div class="form-group">
-            <label for="email">Mail</label>
+            <label for="email">Email</label>
             <input
                     type="email"
                     id="email"
@@ -62,7 +62,7 @@
             </div>
             <div class="alert alert-danger"
                  *ngIf="signupForm.controls.password.errors.minlength && signupForm.controls.password.touched">
-                Password must be at least {{signupForm.controls.password.errors.minlength.value}} characters long!
+                Password must be at least {{signupForm.controls.password.errors.minlength.requiredLength}} characters long!
             </div>
         </div>
         <button

@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 
 @Component({
     selector: 'app-todo',
-    template: ``
+    templateUrl: './todos.component.html'
 })
 
 export class TodosComponent {
