@@ -1,12 +1,18 @@
-<div class="col-md-8 col-md-offset-2">
-    <form>
+<div class="col-md-8 col-md-offset-2 well">
+    <form [formGroup]="signupForm">
         <div class="form-group">
             <label for="firstName">First Name</label>
             <input
                     type="text"
                     id="firstName"
                     class="form-control"
-                    >
+                    formControlName="firstName"
+                    name="firstName"
+            >
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="!signupForm.controls['firstName'].valid && signupForm.controls['firstName'].touched">
+            First name is required!
         </div>
         <div class="form-group">
             <label for="lastName">Last Name</label>
@@ -14,7 +20,12 @@
                     type="text"
                     id="lastName"
                     class="form-control"
-                    >
+                    formControlName="lastName"
+            >
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="!signupForm.controls['lastName'].valid && signupForm.controls['lastName'].touched">
+            Last name is required!
         </div>
         <div class="form-group">
             <label for="email">Mail</label>
@@ -22,7 +33,18 @@
                     type="email"
                     id="email"
                     class="form-control"
-                    >
+                    formControlName="email"
+            >
+        </div>
+        <div *ngIf="signupForm.controls.email.touched && !signupForm.controls.email.valid">
+            <div class="alert alert-danger"
+                 *ngIf="signupForm.controls['email'].errors.required && signupForm.controls['email'].touched">
+                Email is required!
+            </div>
+            <div class="alert alert-danger"
+                 *ngIf="signupForm.controls['email'].errors.validateIsEmail && signupForm.controls['email'].touched">
+                Please enter a valid email address!
+            </div>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -30,12 +52,25 @@
                     type="password"
                     id="password"
                     class="form-control"
-                    ">
+                    formControlName="password"
+            >
+        </div>
+        <div *ngIf="signupForm.controls.password.touched && !signupForm.controls.password.valid">
+            <div class="alert alert-danger"
+                 *ngIf="signupForm.controls.password.errors.required && signupForm.controls.password.touched">
+                Password is required!
+            </div>
+            <div class="alert alert-danger"
+                 *ngIf="signupForm.controls.password.errors.minlength && signupForm.controls.password.touched">
+                Password must be at least {{signupForm.controls.password.errors.minlength.value}} characters long!
+            </div>
         </div>
         <button
                 class="btn btn-primary"
                 type="submit"
-                >Submit
+                [disabled]="!signupForm.valid"
+        >Create User
         </button>
+        <span class="alert alert-warning" *ngIf="!signupForm.valid">Please complete form with all required fields.</span>
     </form>
 </div>
