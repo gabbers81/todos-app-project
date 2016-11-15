@@ -6,8 +6,8 @@ import {SigninComponent} from "./users/signin.component";
 const APP_ROUTES: Routes = [
     {path: '', redirectTo: '/todos', pathMatch: 'full'},
     {path: 'todos', component: TodosComponent},
-    {path: 'signup', component: SignupComponent},
-    {path: 'signin', component: SigninComponent}
+    {path: 'user/signup', component: SignupComponent},
+    {path: 'user/signin', component: SigninComponent},
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

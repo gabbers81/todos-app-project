@@ -1,5 +1,5 @@
-<div class="col-md-8 col-xs-offset-2 well">
-    <form [formGroup]="signupForm">
+<div class="col-md-8 col-xs-offset-2 well" *ngIf="!userCreated && !isLoading">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="firstName">First Name</label>
             <input
@@ -73,4 +73,10 @@
         </button>
         <span class="alert alert-warning" *ngIf="!signupForm.valid">Please complete form with all required fields.</span>
     </form>
+</div>
+<div class="col-md-8 col-xs-offset-2 well" *ngIf="userCreated && !isLoading">
+    <h4 class="text text-success">User has been successfully created. Please wait to be redirected.</h4>
+</div>
+<div class="col-md-8 col-xs-offset-2 well" *ngIf="!userCreated && isLoading">
+    <i class="fa fa-spinner fa-spin fa-4x"></i>
 </div>

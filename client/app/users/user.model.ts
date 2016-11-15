@@ -1,8 +1,9 @@
 export class User {
 
-    email: String,
-    password: String,
-    firstName?: String,
-    lastName?: String,
+    constructor(public email: String,
+                public password: String,
+                public firstName?: String,
+                public lastName?: String) {
+    }
 
 }

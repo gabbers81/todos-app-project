@@ -3,19 +3,17 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from "./app.component";
 import {NavBarComponent} from "./shared/navbar.component";
-import {SignupComponent} from "./users/signup.component";
-import {SigninComponent} from "./users/signin.component"
 import {routing} from "./app.routing";
 import {TodosComponent} from "./todos/todos.component";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import {UserModule} from "./users/user.module";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
-        SignupComponent,
-        SigninComponent,
         TodosComponent,
     ],
     imports: [
@@ -23,7 +21,10 @@ import {CommonModule} from "@angular/common";
         routing,
         ReactiveFormsModule,
         CommonModule,
-        FormsModule],
+        FormsModule,
+        UserModule,
+        HttpModule
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core'
 import {FormGroup, FormControl, Validators} from '@angular/forms'
 import {EmailValidator} from "../shared/email-validator";
+import {User} from "./user.model";
+import {UserService} from "./user.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-signup',
@@ -10,8 +13,12 @@ import {EmailValidator} from "../shared/email-validator";
 export class SignupComponent implements OnInit {
 
     signupForm: FormGroup;
+    isLoading = false;
+    userCreated = false;
 
-    constructor(){}
+    constructor(private _userService: UserService,
+                private _router: Router) {
+    }
 
     ngOnInit() {
         this.signupForm = new FormGroup({
@@ -20,11 +27,32 @@ export class SignupComponent implements OnInit {
             email: new FormControl(null, [
                 Validators.required,
                 EmailValidator.validateIsEmail
-                ]),
+            ]),
             password: new FormControl(null, [
                 Validators.minLength(4),
                 Validators.required
             ])
         })
     }
+
+    onSubmit() {
+        this.isLoading = true;
+        const user = new User(
+            this.signupForm.value.email,
+            this.signupForm.value.password,
+            this.signupForm.value.firstName,
+            this.signupForm.value.lastName
+        );
+
+        this._userService.signUp(user)
+            .subscribe(
+                ((data: User) => console.log(data)),
+                (error => console.log(error)),
+                ( () => {
+                        this.isLoading = false;
+                        this.userCreated = true;
+                    }
+                ))
+    }
+
 }

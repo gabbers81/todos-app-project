@@ -4,12 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var appRoutes = require('./routes/app');
 var userRoutes = require('./routes/user');
 var todoRoutes = require('./routes/todo');
 
 var app = express();
+mongoose.connect('gabbers18:gabbers123@ds149557.mlab.com:49557/todos-db')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
