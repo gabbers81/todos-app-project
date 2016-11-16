@@ -24,7 +24,7 @@
                 Password must be at least {{signinForm.controls.password.errors.minlength.requiredLength}} characters long!
             </div>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!signinForm.valid">Create User
+        <button class="btn btn-primary" type="submit" [disabled]="!signinForm.valid">Log In
         </button>
         <span class="alert alert-warning" *ngIf="!signinForm.valid">Please complete form with all required fields.</span>
     </form>

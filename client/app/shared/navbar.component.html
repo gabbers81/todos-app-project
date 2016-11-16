@@ -17,9 +17,9 @@
                 <li routerLinkActive="active"><a routerLink="/todos">Todo's</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li routerLinkActive="active"><a [routerLink]="['user/signup']">Sign up</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['user/login']">Log In</a></li>
-                <li><app-logout></app-logout></li>
+                <li *ngIf="!isLoggedIn()" routerLinkActive="active"><a [routerLink]="['user/signup']">Sign up</a></li>
+                <li *ngIf="!isLoggedIn()" routerLinkActive="active"><a [routerLink]="['user/login']">Log In</a></li>
+                <li *ngIf="isLoggedIn()" (click)="loggingOut()" ><a>Log out</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
