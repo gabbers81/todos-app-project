@@ -1,9 +1,9 @@
-import {FormGroup, FormControl, Validators} from '@angular/forms'
-import {Component, OnInit} from '@angular/core'
-import {EmailValidator} from "../shared/email-validator";
-import {User} from "./user.model";
-import {UserService} from "./user.service";
-import {Router} from "@angular/router";
+import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { Component, OnInit } from '@angular/core'
+import { EmailValidator } from "../shared/email-validator";
+import { User } from "./user.model";
+import { UserService } from "./user.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-signup',
@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
     userCreated = false;
 
     constructor(private _userService: UserService,
-                private _router: Router) {
+        private _router: Router) {
     }
 
     ngOnInit() {
@@ -46,13 +46,15 @@ export class SignupComponent implements OnInit {
 
         this._userService.signUp(user)
             .subscribe(
-                ((data: User) => console.log(data)),
-                (error => console.log(error)),
-                ( () => {
-                        this.isLoading = false;
-                        this.userCreated = true;
-                    }
-                ))
+            ((data: User) => console.log(data)),
+            (error => console.log(error)),
+            (() => {
+                this.isLoading = false;
+                this.userCreated = true;
+            }
+            ))
+
+        this._router.navigateByUrl("/user/login");
     }
 
 }

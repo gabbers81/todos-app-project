@@ -1,3 +1,6 @@
+import { TodoNavComponent } from './todos/todo-nav.component';
+
+import { HomeComponent } from './home.component';
 import {AuthGuard} from './shared/authguard.component';
 import {UserService} from './users/user.service';
 import {NgModule} from '@angular/core';
@@ -10,13 +13,12 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {UserModule} from "./users/user.module";
 import {HttpModule} from "@angular/http";
-import {TodosModule} from "./todos/todo.module";
-import {TodoNavComponent} from "./todos/todo-nav.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
+        HomeComponent,
         TodoNavComponent
     ],
     imports: [
@@ -26,7 +28,6 @@ import {TodoNavComponent} from "./todos/todo-nav.component";
         CommonModule,
         UserModule,
         HttpModule,
-        TodosModule
     ],
     providers: [UserService, AuthGuard],
     bootstrap: [AppComponent],

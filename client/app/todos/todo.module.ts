@@ -1,3 +1,4 @@
+import { TodoManageComponent } from './todo-manage.component';
 import {NgModule} from '@angular/core';
 
 import {TodosComponent} from './todos.component';
@@ -10,6 +11,7 @@ import {todoRoutes} from "./todo.routing";
     declarations: [
         TodosComponent,
         TodoInputComponent,
+        TodoManageComponent,
     ],
     imports: [
         CommonModule,
@@ -18,4 +20,5 @@ import {todoRoutes} from "./todo.routing";
     ]
 })
 export class TodosModule {
+
 }
