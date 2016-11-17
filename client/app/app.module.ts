@@ -1,24 +1,22 @@
-import { todoRoutes } from './todos/Todo.routing';
-import { TodoNavComponent } from './todos/todo-nav.component';
-import { AuthGuard } from './shared/authgaurd.component';
-import { UserService } from './users/user.service';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {AuthGuard} from './shared/authguard.component';
+import {UserService} from './users/user.service';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from "./app.component";
-import { NavBarComponent } from "./shared/navbar.component";
-import { routing } from "./app.routing";
-import { TodosComponent } from "./todos/todos.component";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { UserModule } from "./users/user.module";
-import { HttpModule } from "@angular/http";
+import {AppComponent} from "./app.component";
+import {NavBarComponent} from "./shared/navbar.component";
+import {routing} from "./app.routing";
+import {ReactiveFormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {UserModule} from "./users/user.module";
+import {HttpModule} from "@angular/http";
+import {TodosModule} from "./todos/todo.module";
+import {TodoNavComponent} from "./todos/todo-nav.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
-        TodosComponent,
         TodoNavComponent
     ],
     imports: [
@@ -26,10 +24,9 @@ import { HttpModule } from "@angular/http";
         routing,
         ReactiveFormsModule,
         CommonModule,
-        FormsModule,
         UserModule,
         HttpModule,
-        todoRoutes
+        TodosModule
     ],
     providers: [UserService, AuthGuard],
     bootstrap: [AppComponent],

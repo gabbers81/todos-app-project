@@ -1,4 +1,4 @@
-import { AuthGuard } from './../shared/authgaurd.component';
+import { AuthGuard } from '../shared/authguard.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";

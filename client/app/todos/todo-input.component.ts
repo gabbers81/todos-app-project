@@ -1,6 +1,6 @@
-import { Todo } from './todo.model';
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms'
+import {Todo} from './todo.model';
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms'
 
 @Component({
     selector: 'app-todo-input',
@@ -10,7 +10,8 @@ export class TodoInputComponent implements OnInit {
 
     todo: Todo;
 
-    constructor() { }
+    constructor() {
+    }
 
     onSubmit(form: NgForm) {
 
@@ -19,5 +20,6 @@ export class TodoInputComponent implements OnInit {
 
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 }

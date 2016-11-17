@@ -1,4 +1,4 @@
-import { AuthGuard } from './shared/authgaurd.component';
+import { AuthGuard } from './shared/authguard.component';
 import { UserService } from './users/user.service';
 import { Component } from '@angular/core';
 
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html',
     providers: [UserService, AuthGuard]
 })
+
 export class AppComponent {
 
 }
