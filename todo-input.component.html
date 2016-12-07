@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <label for="text"><h4>Todo</h4></label>
+            <input id="text" [ngModel]="todo?.text" class="form-control" type=text name="text" placeholder="Insert your todo here..."
+                required>
+        </div>
+        <div class="col-md-3">
+            <label for="duedate"><h4>Due date</h4></label>
+            <input id="duedate" [ngModel]='todo?.dueDate | date:"yyyy-MM-dd"' class="form-control" type="date" name="duedate" required>
+        </div>
+        <button class="btn btn-danger" type="button" style="margin-left: 10px; margin-top: 35px;" (click)="onClear(f)">Clear</button>
+        <button class="btn btn-primary" type="submit" style="margin-left: 10px; margin-top: 35px;">Add</button>
+    </div>
+</form>

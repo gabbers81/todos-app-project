@@ -1,0 +1,22 @@
+<app-loading *ngIf="todosLoading" ></app-loading>
+<table *ngIf="!todosLoading" class="table table-striped">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Todo</th>
+            <th>Due Date</th>
+            <th>Created Date</th>
+            <th>Status</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todos">
+            <td *ngIf="todo.status == 'Completed'">{{todo.text}} </td>
+            <td *ngIf="todo.status == 'Completed'">{{todo.createdDate | date:'shortDate' }}</td>
+            <td *ngIf="todo.status == 'Completed'">{{todo.dueDate | date:'shortDate'}}</td>
+            <td *ngIf="todo.status == 'Completed'">{{todo.status}}</td>
+            <td *ngIf="todo.status == 'Completed'">
+                <i (click)="updateTodoStatus(todo, 'Pending')" *ngIf="todo.status!='Pending'" class="fa fa-clock-o fa-2x" style="color: orange; cursor: pointer" data-toggle="tooltip" title="Mark as pending"></i>
+                <i (click)="onEdit(todo)" *ngIf="todo.status=='Pending'" class="fa fa-edit fa-2x" style="color: orange; cursor: pointer" data-toggle="tooltip" title="Edit todo"></i>
+                <i (click)="removeTodo(todo)" class="fa fa-remove fa-2x" style="color: #6d0303; cursor: pointer" data-toggle="tooltip" title="Remove todo"></i>
+            </td>
